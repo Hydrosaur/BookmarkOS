@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jsPad</title>
+	<title>BookmarkOS</title>
 </head>
-<body>
-	<h1 style="font-family: sans-serif;">Drag this to your bookmarks bar: <a href="javascript:void%20function(e){var%20o=function(e){function%20o(e){function%20o(e){e=e||window.event,i=e.clientX,r=e.clientY,document.onmouseup=n,document.onmousemove=t}function%20t(o){o=o||window.event,d=i-o.clientX,a=r-o.clientY,i=o.clientX,r=o.clientY,e.style.top=e.offsetTop-a+%22px%22,e.style.left=e.offsetLeft-d+%22px%22}function%20n(){document.onmouseup=null,document.onmousemove=null}var%20d=0,a=0,i=0,r=0;document.getElementById(e.id+%22header%22)%3Fdocument.getElementById(e.id+%22header%22).onmousedown=o:e.onmousedown=o}jQuery(%22head%22).append(%22%3Cstyle%3E%23jsNotepad%20{position:%20fixed;z-index:%20996;background-color:%20%23f1f1f1;border:%201px%20solid%20%23d3d3d3;text-align:%20left;}%23jsNotepadheader%20{font-family:%20sans-serif;padding:%2010px;cursor:%20move;z-index:%20997;background-color:%20%232196F3;color:%20%23fff;}%23jsNotepadheader%20button%20{float:%20right;background-color:%20%236dbeff;border:none;margin-left:%205px;}%3C/style%3E%22),jQuery(%22body%22).append(%22%3Cdiv%20id='jsNotepad'%3E%3Cdiv%20id='jsNotepadheader'%3ENotepad%20%3Cbutton%20id='closeJsNotepad'%3E%26times;%3C/button%3E%3C/div%3E%3Ctextarea%3E%3C/textarea%3E%3C/div%3E%22),jQuery(%22%23closeJsNotepad%22).click(function(e){jQuery(%22%23jsNotepad%22).remove()}),o(jQuery(%22%23jsNotepad%22)[0])},t=e%26%26e.fn%26%26parseFloat(e.fn.jquery)%3E=1.7;if(t)o(e);else{var%20n=document.createElement(%22script%22);n.src=%22//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js%22,n.onload=n.onreadystatechange=function(){var%20e=this.readyState;e%26%26%22loaded%22!==e%26%26%22complete%22!==e||o(jQuery.noConflict())}}document.getElementsByTagName(%22head%22)[0].appendChild(n)}(window.jQuery);">jsPad</a></h1>
+<body style="font-family: sans-serif;">
+	<h1>Drag a link to your bookmarks bar:</h1>
+	<ul id="programList">
+		<!-- <li>
+			<a href="javascript:void%20function(e){var%20o=function(e){function%20o(e){function%20o(e){e=e||window.event,i=e.clientX,r=e.clientY,document.onmouseup=n,document.onmousemove=t}function%20t(o){o=o||window.event,d=i-o.clientX,a=r-o.clientY,i=o.clientX,r=o.clientY,e.style.top=e.offsetTop-a+%22px%22,e.style.left=e.offsetLeft-d+%22px%22}function%20n(){document.onmouseup=null,document.onmousemove=null}var%20d=0,a=0,i=0,r=0;document.getElementById(e.id+%22header%22)%3Fdocument.getElementById(e.id+%22header%22).onmousedown=o:e.onmousedown=o}jQuery(%22head%22).append(%22%3Cstyle%3E%23jsNotepad%20{position:%20fixed;z-index:%20996;background-color:%20%23f1f1f1;border:%201px%20solid%20%23d3d3d3;text-align:%20left;}%23jsNotepadheader%20{font-family:%20sans-serif;padding:%2010px;cursor:%20move;z-index:%20997;background-color:%20%232196F3;color:%20%23fff;}%23jsNotepadheader%20button%20{float:%20right;background-color:%20%236dbeff;border:none;margin-left:%205px;}%3C/style%3E%22),jQuery(%22body%22).append(%22%3Cdiv%20id='jsNotepad'%3E%3Cdiv%20id='jsNotepadheader'%3ENotepad%20%3Cbutton%20id='closeJsNotepad'%3E%26times;%3C/button%3E%3C/div%3E%3Ctextarea%3E%3C/textarea%3E%3C/div%3E%22),jQuery(%22%23closeJsNotepad%22).click(function(e){jQuery(%22%23jsNotepad%22).remove()}),o(jQuery(%22%23jsNotepad%22)[0])},t=e%26%26e.fn%26%26parseFloat(e.fn.jquery)%3E=1.7;if(t)o(e);else{var%20n=document.createElement(%22script%22);n.src=%22//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js%22,n.onload=n.onreadystatechange=function(){var%20e=this.readyState;e%26%26%22loaded%22!==e%26%26%22complete%22!==e||o(jQuery.noConflict())}}document.getElementsByTagName(%22head%22)[0].appendChild(n)}(window.jQuery);">jsPad</a>
+		</li> -->
+	</ul>
+	<script type="text/javascript">
+		var programs = ["jsPad", "jsEvaluator"];
+		var list = document.getElementById('programList');
+		programs.forEach(function(item, idx){
+			fetch(`https://raw.githubusercontent.com/Hydrosaur/BookmarkOS/master/${item}/bookmark.txt`).then(function(data){
+				return data.text();
+			}).then(function(text){
+				var entry = document.createElement('li');
+				var link = document.createElement('a');
+				link.href = text;
+				link.appendChild(document.createTextNode(item));
+				entry.appendChild(link);
+				list.appendChild(entry);
+			});
+		});
+	</script>
 </body>
 </html>

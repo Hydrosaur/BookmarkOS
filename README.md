@@ -2,4 +2,4 @@
 
 An operating system in a bookmark.
 
-[Get It!](https://hydrosaur.github.io/BookmarkOS/)
+[Get Them!](https://hydrosaur.github.io/BookmarkOS/)
