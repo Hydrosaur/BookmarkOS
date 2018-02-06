@@ -37,8 +37,8 @@ function dragElement(elmnt) {
 	}
 }
 
-jQuery("head").append(`<style>#jsCalculator {position: fixed;z-index: 996;background-color: #f1f1f1;border: 1px solid #d3d3d3;text-align: left;}#jsCalculatorheader {font-family: sans-serif;padding: 10px;cursor: move;z-index: 997;background-color: #2196F3;color: #fff;}#jsCalculatorheader button {float: right;background-color: #6dbeff;border:none;margin-left: 5px;} #jsCalculatorButton {width: 100%;font-family: sans-serif;}</style>`);
-jQuery("body").append("<div id='jsCalculator'><div id='jsCalculatorheader'>Evaluator <button id='closeJsCalculator'>&times;</button></div><input type='text' placeholder='Input' id='jsCalculatorInput'><br/><input type='text' placeholder='Output' id='jsCalculatorOutput' readonly><br/><button id='jsCalculatorButton'>Calculate</button></div>");
+jQuery("head").append("<style>#jsCalculator {position: fixed;z-index: 996;background-color: #f1f1f1;border: 1px solid #d3d3d3;text-align: left;}#jsCalculatorheader {font-family: sans-serif;padding: 10px;cursor: move;z-index: 997;background-color: #2196F3;color: #fff;}#jsCalculatorheader button {float: right;background-color: #6dbeff;border:none;margin-left: 5px;} #jsCalculatorButton {width: 100%;font-family: sans-serif;}</style>");
+jQuery("body").append("<div id='jsCalculator'><div id='jsCalculatorheader'>Evaluator <button id='closeJsCalculator'>&times;</button></div><textarea placeholder='Input' id='jsCalculatorInput'></textarea><br/><textarea placeholder='Output' id='jsCalculatorOutput' readonly></textarea><br/><button id='jsCalculatorButton'>Calculate</button></div>");
 
 jQuery("#closeJsCalculator").click(function(e){
 	jQuery("#jsCalculator").remove();
